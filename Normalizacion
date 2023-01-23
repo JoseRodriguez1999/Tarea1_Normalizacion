@@ -1,0 +1,30 @@
+create table Dias(
+Id_dia int Primary key,
+Nombre Varchar(80),
+)
+
+Create table Turno(
+Id_Turno Int Primary Key,
+Id_dia int,
+Nombre Varchar(50)
+)
+Create table Horarios(
+Id_hora Int Primary Key identity,
+Id_Turno int,
+Nombre varchar(50)
+)
+
+Create table Total_Horas(
+Id_THoras Int Primary Key identity,
+Id_Turno int,
+Horas int
+)
+
+alter table Turno 
+add foreign key (Id_dia) References Dias(Id_dia)
+
+alter table Horario
+add foreign key (Id_Turno) References Turno(Id_Turno)
+
+alter table Total_Horas
+add foreign key (Id_Turno) References Turno(Id_Turno)
